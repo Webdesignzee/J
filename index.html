@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom To-Do List with Isolated Styles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #todo-list {
+            margin-top: 20px;
+        }
+        .todo-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        textarea {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Custom To-Do List</h1>
+
+<textarea id="task-input" placeholder="Enter HTML for your task, e.g., &lt;h1 style='color:red'&gt;Task Title&lt;/h1&gt;"></textarea>
+<button onclick="addTask()">Add Task</button>
+
+<div id="todo-list"></div>
+
+<script>
+    function addTask() {
+        // Get the input from the textarea
+        const taskInput = document.getElementById('task-input').value;
+
+        // Create a new div for the task and set its innerHTML to the input value
+        const newTask = document.createElement('div');
+        newTask.classList.add('todo-item');
+        newTask.innerHTML = taskInput;
+
+        // Append the new task to the todo-list
+        document.getElementById('todo-list').appendChild(newTask);
+
+        // Clear the textarea
+        document.getElementById('task-input').value = '';
+    }
+</script>
+
+</body>
+</html>
